@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Sistema Secreto</title>
+<style>
+    body {
+        background: #0d0d0d;
+        color: #00ffea;
+        font-family: Consolas, monospace;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .box {
+        border: 2px solid #00ffea;
+        padding: 30px;
+        width: 300px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px #00ffea;
+        text-align: center;
+    }
+    input {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        background: #111;
+        color: #00ffea;
+        border: 1px solid #00ffea;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    button {
+        width: 95%;
+        padding: 10px;
+        margin-top: 10px;
+        background: #00ffea;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #00c7be;
+    }
+    #msg {
+        margin-top: 20px;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h2>ACESSO RESTRITO</h2>
+    <input id="login" placeholder="Login">
+    <input id="senha" placeholder="Senha" type="password">
+    <button onclick="entrar()">Entrar</button>
+    <div id="msg"></div>
+</div>
+
+<script>
+function entrar() {
+    const login = document.getElementById("login").value;
+    const senha = document.getElementById("senha").value;
+    const msg = document.getElementById("msg");
+
+    if (login === "yago_emily2025" && senha === "v0c3_3_s0_m1nh4") {
+        msg.style.color = "#00ffea";
+        msg.innerHTML = "✔ Acesso concedido<br><br><b>Mensagem secreta:</b><br>Você decifrou tudo... então acho que merece saber: 😳💙";
+    } else {
+        msg.style.color = "red";
+        msg.innerHTML = "✖ Login ou senha incorretos";
+    }
+}
+</script>
+
+</body>
+</html>
