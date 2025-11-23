@@ -17,7 +17,7 @@
     .box {
         border: 2px solid #00ffea;
         padding: 30px;
-        width: 300px;
+        width: 350px;
         border-radius: 10px;
         box-shadow: 0 0 20px #00ffea;
         text-align: center;
@@ -46,9 +46,20 @@
     button:hover {
         background: #00c7be;
     }
-    #msg {
+    #conteudo {
+        display: none;
         margin-top: 20px;
-        font-size: 18px;
+    }
+    #conteudo img {
+        max-width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+    .frase {
+        font-size: 16px;
+        color: #ffffff;
+        line-height: 1.4em;
+        font-family: Arial, sans-serif;
     }
 </style>
 </head>
@@ -56,10 +67,24 @@
 
 <div class="box">
     <h2>ACESSO RESTRITO</h2>
-    <input id="login" placeholder="Login">
-    <input id="senha" placeholder="Senha" type="password">
-    <button onclick="entrar()">Entrar</button>
-    <div id="msg"></div>
+
+    <div id="login-area">
+        <input id="login" placeholder="Login">
+        <input id="senha" placeholder="Senha" type="password">
+        <button onclick="entrar()">Entrar</button>
+        <div id="msg"></div>
+    </div>
+
+    <div id="conteudo">
+        <!-- COLOQUE A SUA IMAGEM NA MESMA PASTA E TROQUE O NOME AQUI -->
+        <img src="minha_imagem.png">
+
+        <div class="frase">
+            “Te amo sem saber como, nem quando, nem onde,<br>
+            te amo diretamente sem problemas nem orgulho:<br>
+            assim te amo porque não sei amar de outra maneira.”
+        </div>
+    </div>
 </div>
 
 <script>
@@ -67,10 +92,13 @@ function entrar() {
     const login = document.getElementById("login").value;
     const senha = document.getElementById("senha").value;
     const msg = document.getElementById("msg");
+    const conteudo = document.getElementById("conteudo");
+    const loginArea = document.getElementById("login-area");
 
     if (login === "yago_emily2025" && senha === "v0c3_3_s0_m1nh4") {
-        msg.style.color = "#00ffea";
-        msg.innerHTML = "✔ Acesso concedido<br><br><b>Mensagem secreta:</b><br>Você decifrou tudo... então acho que merece saber: 😳💙";
+        msg.innerHTML = "";
+        loginArea.style.display = "none";
+        conteudo.style.display = "block";
     } else {
         msg.style.color = "red";
         msg.innerHTML = "✖ Login ou senha incorretos";
